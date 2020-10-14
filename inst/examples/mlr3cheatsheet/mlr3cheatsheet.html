@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <meta charset="utf-8" />
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <meta name="generator" content="pandoc" />
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="author" content="mlr-org" />
+         <title>mlr3cheatsheet</title>
+      <style type="text/css">code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */</style>
+      <script type="text/javascript">
+      // Prevent pagedjs execution
+      window.PagedConfig = {
+      auto: false
+      };
+
+      document.addEventListener("DOMContentLoaded", function(){
+      var a = document.getElementsByClassName("example")
+
+      for(i = 0; i < a.length; i++) {
+        // Add extra class to code block
+        a[i].firstChild.classList.add("example_code")
+
+        // Add header
+        var b = document.createElement("div")
+        b.classList.add("example_head")
+        b.appendChild(document.createTextNode("Example"))
+
+        var p = a[i].parentNode
+        p.insertBefore(b, p.childNodes[0])
+      }
+
+      window.PagedPolyfill.preview();
+      });
+   </script>
+         <link href="mlr3cheatsheet_files/paged-0.1.43/interface.css" rel="stylesheet" />
+   <script src="mlr3cheatsheet_files/paged-0.1.43/paged.polyfill.js"></script>
+   <link href="mlr3cheatsheet_files/cheatdown_css-0.0.1/cheatdown.css" rel="stylesheet" />
+   <script src="mlr3cheatsheet_files/accessible-code-block-0.0.1/empty-anchor.js"></script>
+   </head>
+<body>
+      <div class="cheatsheet_wrap">
+      <div class="title_container">
+         <div class="cheatsheet_title">
+            <h1>Machine learning with mlr3::CHEAT SHEET</h1>
+         </div>
+         <div class="cheatsheet_logo">
+            <img src=logo.png>
+         </div>
+      </div>
+      <div class="body_container"><div id="class-overview" class="section level2">
+<h2>Class Overview</h2>
+<p>The package provides a set of R6 classes which allow to (a) define general feature selection instances and (b) run algorithms which optimize on these. (a) is called a FSelectInstanceSingleCrit or FSelectInstaneMultiCrit, which define a blackbox optimization function that maps feature subsets to resampled performance values for arbitrary performance measures.</p>
+</div>
+<div id="mlr3-dictionaries" class="section level2">
+<h2>mlr3 Dictionaries</h2>
+<p>Key-value store for sets of mlr objects. These are provided by mlr3:</p>
+<ul>
+<li><code>mlr_tasks</code> - ML example tasks.</li>
+<li><code>mlr_task_generators</code> - Example generators.</li>
+<li><code>mlr_learners</code> - ML algorithms.</li>
+<li><code>mlr_measures</code> - Performance measures.</li>
+<li><code>mlr_resamplings</code> - Resampling strategies.</li>
+</ul>
+<p>These dictionaries can be extended by loading extension packages. For example, by loading the <strong>mlr3learners</strong> package, the <code>mlr_learners</code> dictionary is extended with more learners.</p>
+<p>Syntactic sugar functions retrieve objects from dictionaries, set hyperparameters and assign fields in one go e.g. <code>lrn("classif.rpart", cp = 0.1)</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>Dictionary<span class="op">$</span><span class="kw">keys</span>(<span class="dt">pattern =</span> <span class="ot">NULL</span>)</span></code></pre></div>
+<p>Returns all keys which match pattern. If NULL, all keys are returned.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>Dictionary<span class="op">$</span><span class="kw">get</span>(key, ...)</span></code></pre></div>
+<p>Retrieves object by key and passes arguments “…” to the construction of the objects.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>Dictionary<span class="op">$</span><span class="kw">mget</span>(keys, ...)</span></code></pre></div>
+<p>Retrieves objects by keys and passes named arguments “…” to the construction of the objects.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">as.data.table</span>(Dictionary)</span></code></pre></div>
+<p>Lists objects with metadata.</p>
+</div>
+<div id="class-task" class="section level2">
+<h2>Class: Task</h2>
+<p>Stores data and metadata. <code>backend</code> can be a <code>data.table</code>, <code>target</code> points to y-column by name.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>task =<span class="st"> </span>TaskRegr<span class="op">$</span><span class="kw">new</span>(backend, target)</span></code></pre></div>
+<p>Create task for regression or classification.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>task =<span class="st"> </span><span class="kw">tsk</span>(.key)</span></code></pre></div>
+<p>Sugar to get example task from <code>mlr_tasks</code>:</p>
+<ul>
+<li>Twoclass: <code>german_credit</code>, <code>pima</code>, <code>sonar</code>, <code>spam</code></li>
+<li>Multiclass: <code>iris</code>, <code>wine</code>, <code>zoo</code></li>
+<li>Regression: <code>boston_housing</code>, <code>mtcars</code></li>
+</ul>
+<p>Print the <code>mlr_tasks</code> dictionary for more.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>task<span class="op">$</span>positive =<span class="st"> &quot;&lt;positive_class&gt;&quot;</span></span></code></pre></div>
+<p>Set positive class for binary classification.</p>
+<div id="column-roles" class="section level3">
+<h3>Column Roles</h3>
+<p>Column roles affect the behavior of the task for different operations. Set with</p>
+<p><code>task$col_roles$&lt;role&gt; = "&lt;column_name&gt;"</code>:</p>
+<ul>
+<li><code>feature</code> - Regular features.</li>
+<li><code>target</code> - Target variable.</li>
+<li><code>name</code> - Labels for plots.</li>
+<li><code>group</code> - Groups for block resampling.</li>
+<li><code>stratum</code> - Stratification variables.</li>
+<li><code>weight</code> - Observation weights.</li>
+</ul>
+</div>
+<div id="data-operations" class="section level3">
+<h3>Data Operations</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>task<span class="op">$</span><span class="kw">select</span>(cols)</span></code></pre></div>
+<p>Subsets the task based on feature names.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>task<span class="op">$</span><span class="kw">filter</span>(rows)</span></code></pre></div>
+<p>Subsets the task based on row ids.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>task<span class="op">$</span><span class="kw">cbind</span>(data) <span class="op">/</span><span class="st"> </span>task<span class="op">$</span><span class="kw">rbind</span>(data)</span></code></pre></div>
+<p>Adds additional columns / rows.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>task<span class="op">$</span><span class="kw">rename</span>(from, to)</span></code></pre></div>
+</div>
+</div>
+<div id="class-learner" class="section level2">
+<h2>Class: Learner</h2>
+<p>Wraps learners from R with a unified interface.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>learner =<span class="st"> </span><span class="kw">lrn</span>(.key, ...)</span></code></pre></div>
+<p>Get learner by <code>.key</code> (from <code>mlr_learners</code>) and construct the learner with specific hyperparameters and settings “…” in one go.</p>
+<p><a href="https://github.com/mlr-org/mlr3learners">github.com/mlr-org/mlr3learners</a> (R packageg) and <a href="https://github.com/mlr3learners">github.com/mlr3learners</a> (GitHub organization) hold all available learners.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>learner<span class="op">$</span>param_set</span></code></pre></div>
+<p>Returns description of hyperparameters.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>learner<span class="op">$</span>param_set<span class="op">$</span>values =<span class="st"> </span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="st">  </span><span class="kw">list</span>(<span class="dt">id =</span> value)</span></code></pre></div>
+<p>Change the current hyperparameter values by assigning a named <code>list(id = value)</code> to the <code>$values</code> field. This overwrites all previously set parameters.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>learner<span class="op">$</span>param_set<span class="op">$</span>values<span class="op">$</span><span class="er">&lt;</span>id<span class="op">&gt;</span><span class="st"> </span><span class="er">=</span><span class="st"> </span><span class="er">&lt;</span>value<span class="op">&gt;</span></span></code></pre></div>
+<p>Update a single hyperparameter.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>learner<span class="op">$</span>predict_type =<span class="st"> &quot;&lt;type&gt;&quot;</span></span></code></pre></div>
+<p>Changes/sets the output type of the prediction. For classification, <code>"response"</code> means class labels, <code>"prob"</code> means posterior probabilities. For regression, <code>"response"</code> means numeric response, <code>"se"</code> extracts the standard error.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r example"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>task =<span class="st"> </span><span class="kw">tsk</span>(<span class="st">&quot;sonar&quot;</span>)</span>
+<span id="cb17-2"><a href="#cb17-2"></a>learner =<span class="st"> </span><span class="kw">lrn</span>(<span class="st">&quot;classif.rpart&quot;</span>)</span>
+<span id="cb17-3"><a href="#cb17-3"></a></span>
+<span id="cb17-4"><a href="#cb17-4"></a>train_set =<span class="st"> </span><span class="kw">sample</span>(task<span class="op">$</span>nrow, <span class="fl">0.8</span> <span class="op">*</span><span class="st"> </span>task<span class="op">$</span>nrow)</span>
+<span id="cb17-5"><a href="#cb17-5"></a>test_set =<span class="st"> </span><span class="kw">setdiff</span>(<span class="kw">seq_len</span>(task<span class="op">$</span>nrow), train_set)</span>
+<span id="cb17-6"><a href="#cb17-6"></a></span>
+<span id="cb17-7"><a href="#cb17-7"></a>learner<span class="op">$</span><span class="kw">train</span>(task, <span class="dt">row_ids =</span> train_set)</span>
+<span id="cb17-8"><a href="#cb17-8"></a></span>
+<span id="cb17-9"><a href="#cb17-9"></a>prediction =<span class="st"> </span>learner<span class="op">$</span><span class="kw">predict</span>(task, <span class="dt">row_ids =</span> test_set)</span>
+<span id="cb17-10"><a href="#cb17-10"></a>prediction<span class="op">$</span><span class="kw">score</span>()</span>
+<span id="cb17-11"><a href="#cb17-11"></a><span class="co">## &gt; classif.ce</span></span>
+<span id="cb17-12"><a href="#cb17-12"></a><span class="co">## &gt; 0.2619048</span></span></code></pre></div>
+</div>
+<div id="train-and-predict" class="section level2">
+<h2>Train and Predict</h2>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>learner<span class="op">$</span><span class="kw">train</span>(task, row_ids)</span></code></pre></div>
+<p>Train on (selected) observations.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>learner<span class="op">$</span>model</span></code></pre></div>
+<p>The resulting model is stored in the <code>$model</code> slot of the <code>learner</code>.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>prediction =<span class="st"> </span></span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="st">  </span>learner<span class="op">$</span><span class="kw">predict</span>(task, row_ids)</span></code></pre></div>
+<p>Predict on ( selected) observations.</p>
+<!--- Dummy div to start new page --->
+<div class="page_break">
+
+</div>
+</div>
+<div id="class-resampling" class="section level2">
+<h2>Class: Resampling</h2>
+<p>Define partitioning of task into train and test sets. Creation: <code>resampling = rsmp(.key, ...)</code></p>
+<ul>
+<li><code>holdout</code> (<code>ratio</code>) Holdout-validation.</li>
+<li><code>cv</code> (<code>folds</code>) k-fold cross-validation.</li>
+<li><code>repeated_cv</code> (<code>folds</code>, <code>repeats</code>) Repeated k-fold cross-validation.</li>
+<li><code>subsampling</code> (<code>repeats</code>, <code>ratio</code>) Repeated holdouts.</li>
+<li><code>bootstrap</code> (<code>repeats</code>, <code>ratio</code>) Out-of-bag bootstrap.</li>
+<li>Custom splits</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>resampling =<span class="st"> </span><span class="kw">rsmp</span>(<span class="st">&quot;custom&quot;</span>)</span>
+<span id="cb21-2"><a href="#cb21-2"></a>resampling<span class="op">$</span><span class="kw">instantiate</span>(task, </span>
+<span id="cb21-3"><a href="#cb21-3"></a>  <span class="dt">train =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">51</span><span class="op">:</span><span class="dv">60</span>, <span class="dv">101</span><span class="op">:</span><span class="dv">110</span>)), </span>
+<span id="cb21-4"><a href="#cb21-4"></a>  <span class="dt">test =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="dv">11</span><span class="op">:</span><span class="dv">20</span>, <span class="dv">61</span><span class="op">:</span><span class="dv">70</span>, <span class="dv">111</span><span class="op">:</span><span class="dv">120</span>)))                                    </span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>resampling<span class="op">$</span>param_set</span></code></pre></div>
+<p>Returns a description of parameter settings.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>resampling<span class="op">$</span>param_set<span class="op">$</span>values =<span class="st"> </span><span class="kw">list</span>(<span class="dt">folds =</span> <span class="dv">10</span>)</span></code></pre></div>
+<p>Sets folds to 10.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>task<span class="op">$</span>col_roles<span class="op">$</span>stratum =<span class="st"> &quot;&lt;column_names&gt;&quot;</span></span></code></pre></div>
+<p>Sets stratification variables.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>task<span class="op">$</span>col_roles<span class="op">$</span>group =<span class="st"> &quot;&lt;column_name&gt;&quot;</span></span></code></pre></div>
+<p>Sets group variable.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>resampling<span class="op">$</span><span class="kw">instantiate</span>(task)</span></code></pre></div>
+<p>Perform splitting and define index sets.</p>
+</div>
+<div id="resample" class="section level2">
+<h2>Resample</h2>
+<p>Train-Predict-Score a learner on each train/test set.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>rr =<span class="st"> </span><span class="kw">resample</span>(task, learner, resampling)</span></code></pre></div>
+<p>Returns a <code>ResampleResult</code> container object.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>rr<span class="op">$</span><span class="kw">score</span>(measures)</span></code></pre></div>
+<p>Returns a <code>data.table</code> of scores on test sets.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>rr<span class="op">$</span><span class="kw">aggregate</span>(measures)</span></code></pre></div>
+<p>Gets aggregated performance scores as vector.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>rr<span class="op">$</span><span class="kw">filter</span>(iters)</span></code></pre></div>
+<p>Filters to specific iterations.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r example"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="kw">library</span>(mlr3learners)</span>
+<span id="cb31-2"><a href="#cb31-2"></a>task =<span class="st"> </span><span class="kw">tsk</span>(<span class="st">&quot;pima&quot;</span>)</span>
+<span id="cb31-3"><a href="#cb31-3"></a>learner =<span class="st"> </span><span class="kw">lrn</span>(<span class="st">&quot;classif.rpart&quot;</span>, <span class="dt">predict_type =</span> <span class="st">&quot;prob&quot;</span>)</span>
+<span id="cb31-4"><a href="#cb31-4"></a>measure =<span class="st"> </span><span class="kw">msr</span>(<span class="st">&quot;classif.ce&quot;</span>)</span>
+<span id="cb31-5"><a href="#cb31-5"></a>resampling =<span class="st"> </span><span class="kw">rsmp</span>(<span class="st">&quot;cv&quot;</span>, <span class="dt">folds =</span> 3L)</span>
+<span id="cb31-6"><a href="#cb31-6"></a>resampling<span class="op">$</span><span class="kw">instantiate</span>(task)</span>
+<span id="cb31-7"><a href="#cb31-7"></a>rr =<span class="st"> </span><span class="kw">resample</span>(task, learner, resampling)</span>
+<span id="cb31-8"><a href="#cb31-8"></a><span class="kw">as.data.table</span>(rr)[, <span class="kw">list</span>(resampling, iteration, prediction)]</span>
+<span id="cb31-9"><a href="#cb31-9"></a><span class="co">## &gt;           resampling  iteration              prediction</span></span>
+<span id="cb31-10"><a href="#cb31-10"></a><span class="co">## &gt; 1: &lt;ResamplingCV[19]&gt;         1 &lt;PredictionClassif[19]&gt;</span></span>
+<span id="cb31-11"><a href="#cb31-11"></a><span class="co">## &gt; 2: &lt;ResamplingCV[19]&gt;         2 &lt;PredictionClassif[19]&gt;</span></span>
+<span id="cb31-12"><a href="#cb31-12"></a><span class="co">## &gt; 3: &lt;ResamplingCV[19]&gt;         3 &lt;PredictionClassif[19]&gt;</span></span>
+<span id="cb31-13"><a href="#cb31-13"></a>rr<span class="op">$</span><span class="kw">aggregate</span>(measure)</span>
+<span id="cb31-14"><a href="#cb31-14"></a><span class="co">## &gt; classif.ce </span></span>
+<span id="cb31-15"><a href="#cb31-15"></a><span class="co">## &gt;  0.2239583</span></span>
+<span id="cb31-16"><a href="#cb31-16"></a>learners =<span class="st"> </span><span class="kw">lrns</span>(<span class="kw">c</span>(<span class="st">&quot;classif.rpart&quot;</span>, <span class="st">&quot;classif.ranger&quot;</span>))</span>
+<span id="cb31-17"><a href="#cb31-17"></a>tasks =<span class="st"> </span><span class="kw">tsks</span>(<span class="kw">c</span>(<span class="st">&quot;sonar&quot;</span>, <span class="st">&quot;spam&quot;</span>))</span>
+<span id="cb31-18"><a href="#cb31-18"></a>resampling =<span class="st"> </span><span class="kw">rsmp</span>(<span class="st">&quot;cv&quot;</span>, <span class="dt">folds =</span> 3L)</span>
+<span id="cb31-19"><a href="#cb31-19"></a>design =<span class="st"> </span><span class="kw">benchmark_grid</span>(tasks, learners,resampling)</span>
+<span id="cb31-20"><a href="#cb31-20"></a>bmr =<span class="st"> </span><span class="kw">benchmark</span>(design)</span>
+<span id="cb31-21"><a href="#cb31-21"></a>bmr</span>
+<span id="cb31-22"><a href="#cb31-22"></a><span class="co">## &gt;                      learner         resampling   iteration</span></span>
+<span id="cb31-23"><a href="#cb31-23"></a><span class="co">## &gt;  1: &lt;LearnerClassifRpart[33]&gt;  &lt;ResamplingCV[19]&gt;         1</span></span>
+<span id="cb31-24"><a href="#cb31-24"></a><span class="co">## &gt;  2: &lt;LearnerClassifRpart[33]&gt;  &lt;ResamplingCV[19]&gt;         2</span></span>
+<span id="cb31-25"><a href="#cb31-25"></a><span class="co">## &gt;  3: &lt;LearnerClassifRpart[33]&gt;  &lt;ResamplingCV[19]&gt;         3</span></span>
+<span id="cb31-26"><a href="#cb31-26"></a><span class="co">## &gt;  4: &lt;LearnerClassifRanger[33]&gt; &lt;ResamplingCV[19]&gt;         1</span></span>
+<span id="cb31-27"><a href="#cb31-27"></a>bmr<span class="op">$</span><span class="kw">aggregate</span>()[, <span class="kw">list</span>(nr, resample_result, task_id, learner_id, classif.ce)]</span>
+<span id="cb31-28"><a href="#cb31-28"></a><span class="co">## &gt;    nr      resample_result task_id     learner_id classif.ce</span></span>
+<span id="cb31-29"><a href="#cb31-29"></a><span class="co">## &gt; 1:  1 &lt;ResampleResult[21]&gt;   sonar  classif.rpart 0.30276052</span></span>
+<span id="cb31-30"><a href="#cb31-30"></a><span class="co">## &gt; 2:  2 &lt;ResampleResult[21]&gt;   sonar classif.ranger 0.17308489</span></span>
+<span id="cb31-31"><a href="#cb31-31"></a><span class="co">## &gt; 3:  3 &lt;ResampleResult[21]&gt;    spam  classif.rpart 0.09997865</span></span>
+<span id="cb31-32"><a href="#cb31-32"></a><span class="co">## &gt; 4:  4 &lt;ResampleResult[21]&gt;    spam classif.ranger 0.04868526</span></span></code></pre></div>
+<p>Results are stored as a <code>data.table</code>. <code>BenchmarkResult</code> contains a <code>ResampleResult</code> object for each task-learner-resampling combination which in turn contain a <code>Prediction</code> object for each resampling iteration.</p>
+</div></div>
+      <div class="footer_container">
+         <a href="https://mlr-org.com">mlr-org.com</a>,
+         <a href="https://cheatsheets.mlr-org.com">cheatsheets.mlr-org.com</a>
+      </div>
+   </div>
+   </body>
+</html>

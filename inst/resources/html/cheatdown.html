@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"$if(lang)$ lang="$lang$" xml:lang="$lang$"$endif$>
+<head>
+   <meta charset="utf-8" />
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <meta name="generator" content="pandoc" />
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   $for(author-meta)$
+   <meta name="author" content="$author-meta$" />
+   $endfor$
+   $if(date-meta)$
+   <meta name="date" content="$date-meta$" />
+   $endif$
+   <title>$if(title-prefix)$$title-prefix$ - $endif$$pagetitle$</title>
+   $if(highlighting-css)$
+   <style type="text/css">$highlighting-css$</style>
+   $endif$
+   <script type="text/javascript">
+      // Prevent pagedjs execution
+      window.PagedConfig = {
+      auto: false
+      };
+
+      document.addEventListener("DOMContentLoaded", function(){
+      var a = document.getElementsByClassName("example")
+
+      for(i = 0; i < a.length; i++) {
+        // Add extra class to code block
+        a[i].firstChild.classList.add("example_code")
+
+        // Add header
+        var b = document.createElement("div")
+        b.classList.add("example_head")
+        b.appendChild(document.createTextNode("Example"))
+
+        var p = a[i].parentNode
+        p.insertBefore(b, p.childNodes[0])
+      }
+
+      window.PagedPolyfill.preview();
+      });
+   </script>
+   $for(css)$
+   <link rel="stylesheet" href="$css$" $if(html5)$$else$type="text/css" $endif$/>
+   $endfor$
+   $for(header-includes)$
+   $header-includes$
+   $endfor$
+</head>
+<body>
+   $for(include-before)$
+   $include-before$
+   $endfor$
+   <div class="cheatsheet_wrap">
+      <div class="title_container">
+         <div class="cheatsheet_title">
+            <h1>$short_description$::CHEAT SHEET</h1>
+         </div>
+         <div class="cheatsheet_logo">
+            <img src=$logo$>
+         </div>
+      </div>
+      <div class="body_container">$body$</div>
+      <div class="footer_container">
+         <a href="https://mlr-org.com">mlr-org.com</a>,
+         <a href="https://cheatsheets.mlr-org.com">cheatsheets.mlr-org.com</a>
+      </div>
+   </div>
+   $for(include-after)$
+   $include-after$
+   $endfor$
+</body>
+</html>

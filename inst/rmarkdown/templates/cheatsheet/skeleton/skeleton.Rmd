@@ -1,0 +1,41 @@
+---
+title: "Template Title"
+author: "Your Name"
+date: "The Date"
+package_name: "Package Title"
+package_description: "Package Description"
+logo: "logo.png"
+output: 
+  cheatdown::cheatdown_html:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Section 1
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed bibendum velit sed dolor pulvinar blandit. Donec ullamcorper sapien sed facilisis sollicitudin. In bibendum mattis condimentum. Ut tincidunt enim accumsan massa sagittis sollicitudin. Nullam id risus quis orci finibus pellentesque bibendum non dolor. Morbi vel arcu non erat tempor posuere. Aenean at tellus leo. Nulla tempor, leo a bibendum faucibus, ex mauris aliquet dolor, non porttitor lacus libero id orci. Aenean ut orci et velit luctus venenatis sed quis diam. Morbi faucibus dolor nec accumsan aliquam. Cras ullamcorper feugiat nunc, ac efficitur augue. Integer euismod nunc eget turpis condimentum condimentum. Praesent scelerisque massa non ligula varius venenatis. Integer ut arcu mollis, tristique orci eu, faucibus augue.
+
+## Section 2
+
+In ac ipsum ac dui pretium mollis. Proin tempus diam orci, sed vehicula risus tempus vitae. Donec imperdiet massa eu orci semper finibus. Maecenas consequat feugiat porttitor. Sed porttitor neque eget ullamcorper lobortis. Vivamus tortor arcu, malesuada eu sem et, scelerisque pharetra mauris. In sem nisl, ultrices quis purus non, vestibulum eleifend lectus. Nullam eget urna bibendum, dignissim justo et, egestas ipsum. Nulla vestibulum congue tempus.
+
+## Section 3
+
+Etiam rhoncus non tortor sed sodales. Maecenas eu libero in metus luctus feugiat id posuere turpis. Fusce ut metus eros. Mauris nec nulla sed lacus vulputate blandit. In porta ante at nisl molestie scelerisque vitae quis mi. Nulla tincidunt, odio aliquet convallis varius, nibh risus vehicula justo, vitae dignissim erat libero sit amet lectus. Maecenas rutrum mattis urna sed fringilla. Proin tincidunt sollicitudin augue vel pharetra. Duis nisl arcu, congue sed porta vel, hendrerit nec felis. Fusce mollis mauris id nisi dignissim elementum. Maecenas dapibus sollicitudin turpis, et rutrum risus tempor ac. Vestibulum consequat dignissim erat eu convallis. Donec eu nulla ligula. In cursus elit eu rutrum eleifend. In euismod urna sit amet lorem efficitur tincidunt. Curabitur id lorem. 
+
+## Section 4
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed bibendum velit sed dolor pulvinar blandit. Donec ullamcorper sapien sed facilisis sollicitudin. In bibendum mattis condimentum. Ut tincidunt enim accumsan massa sagittis sollicitudin. Nullam id risus quis orci finibus pellentesque bibendum non dolor. Morbi vel arcu non erat tempor posuere. Aenean at tellus leo. Nulla tempor, leo a bibendum faucibus, ex mauris aliquet dolor, non porttitor lacus libero id orci. Aenean ut orci et velit luctus venenatis sed quis diam. Morbi faucibus dolor nec accumsan aliquam. Cras ullamcorper feugiat nunc, ac efficitur augue. Integer euismod nunc eget turpis condimentum condimentum. Praesent scelerisque massa non ligula varius venenatis. Integer ut arcu mollis, tristique orci eu, faucibus augue.
+
+## Section 5
+
+In ac ipsum ac dui pretium mollis. Proin tempus diam orci, sed vehicula risus tempus vitae. Donec imperdiet massa eu orci semper finibus. Maecenas consequat feugiat porttitor. Sed porttitor neque eget ullamcorper lobortis. Vivamus tortor arcu, malesuada eu sem et, scelerisque pharetra mauris. In sem nisl, ultrices quis purus non, vestibulum eleifend lectus. Nullam eget urna bibendum, dignissim justo et, egestas ipsum. Nulla vestibulum congue tempus.
+
+## Section 6
+
+Etiam rhoncus non tortor sed sodales. Maecenas eu libero in metus luctus feugiat id posuere turpis. Fusce ut metus eros. Mauris nec nulla sed lacus vulputate blandit. In porta ante at nisl molestie scelerisque vitae quis mi. Nulla tincidunt, odio aliquet convallis varius, nibh risus vehicula justo, vitae dignissim erat libero sit amet lectus. Maecenas rutrum mattis urna sed fringilla. Proin tincidunt sollicitudin augue vel pharetra. Duis nisl arcu, congue sed porta vel, hendrerit nec felis. Fusce mollis mauris id nisi dignissim elementum. Maecenas dapibus sollicitudin turpis, et rutrum risus tempor ac. Vestibulum consequat dignissim erat eu convallis. Donec eu nulla ligula. In cursus elit eu rutrum eleifend. In euismod urna sit amet lorem efficitur tincidunt. Curabitur id lorem. 
+
+
