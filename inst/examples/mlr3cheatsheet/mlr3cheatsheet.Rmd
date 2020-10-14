@@ -313,4 +313,3 @@ bmr$aggregate()[, list(nr, resample_result, task_id, learner_id, classif.ce)]
 ## > 4:  4 <ResampleResult[21]>    spam classif.ranger 0.04868526
 ```					
 Results are stored as a `data.table`. `BenchmarkResult` contains a `ResampleResult` object for each task-learner-resampling combination which in turn contain a `Prediction` object for each resampling iteration.
-

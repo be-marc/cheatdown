@@ -73,12 +73,10 @@
       </div>
       <div class="body_container">$body$</div>
       <div class="footer_container">
-         <a href="https://mlr-org.com">mlr-org.com</a>,
-         <a href="https://cheatsheets.mlr-org.com">cheatsheets.mlr-org.com</a>
+         $for(include-after)$
+         $include-after$
+         $endfor$
       </div>
    </div>
-   $for(include-after)$
-   $include-after$
-   $endfor$
 </body>
 </html>

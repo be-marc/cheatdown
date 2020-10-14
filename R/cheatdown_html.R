@@ -15,12 +15,15 @@ cheatdown_html <- function(...) {
       src = pkg_resource("css", "cheatdown"), stylesheet = "cheatdown.css")
   )
 
+  includes = rmarkdown::includes(after_body = "footer.html")
+
   rmarkdown::html_document(
     self_contained = FALSE,
     theme = NULL,
     highlight = "pygments",
     mathjax = NULL,
     template = pkg_resource("html", "cheatdown.html"),
-    extra_dependencies = extra_dependencies
+    extra_dependencies = extra_dependencies,
+    includes = includes
     )
 }
