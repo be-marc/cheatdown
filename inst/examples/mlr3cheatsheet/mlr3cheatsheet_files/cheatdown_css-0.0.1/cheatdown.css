@@ -84,22 +84,6 @@ h2 {
   border-top: 1px solid black;
   color: #03638e;
 }
-.level2:nth-of-type(2){
-  break-after:column;
-  display:block;
-}
-.level2:nth-of-type(3){
-  break-after:column;
-  display:block;
-}
-.level2:nth-of-type(4){
-  break-after:column;
-  display:block;
-}
-.level2:nth-of-type(6){
-  break-after:column;
-  display:block;
-}
 .example_head {
   background-color: #b5b5b5;
   font-size: 12pt;
@@ -115,12 +99,10 @@ h2 {
 [data-align-last-split-element='justify'] { /*Overwrites default of paged.js*/
  text-align-last: left;
 }
-
 p {
   margin-block-start: 0;
   margin-block-end: 0;
 }
-
 .footer_container {
   height: 4%;
   background: #ffffff;
@@ -128,7 +110,6 @@ p {
   position: absolute;
   bottom: 2mm;
 }
-
 a {
   color: #ebae34;
   text-decoration: none;

@@ -4,9 +4,9 @@ author: "mlr-org"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 short_description: "Machine learning with mlr3"
 logo: "logo.png"
+column_breaks: [2, 3, 4, 6]
 output: 
-  cheatdown::cheatdown_html:
-    self_contained: false
+  cheatdown::cheatdown_html
 ---
 
 ```{r setup, include=FALSE}

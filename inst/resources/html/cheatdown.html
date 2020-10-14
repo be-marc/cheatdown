@@ -43,6 +43,17 @@
    $for(css)$
    <link rel="stylesheet" href="$css$" $if(html5)$$else$type="text/css" $endif$/>
    $endfor$
+   $if(column_breaks)$
+   <style type="text/css">
+   $for(column_breaks)$
+   .level2:nth-of-type($column_breaks$){
+      break-after:column;
+      display:block;
+   }
+   $endfor$
+   </style>
+   $endif$
+
    $for(header-includes)$
    $header-includes$
    $endfor$
