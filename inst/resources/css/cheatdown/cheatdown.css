@@ -65,14 +65,13 @@ code.sourceCode.r{
   font-family: 'Roboto Mono', monospace;
 }
 code {
-  font-size: 8pt;
+  font-size: 7pt;
   font-family: monospace;
-  padding: 1.2mm;
   line-height: 1;
   border-radius: 2mm;
 }
 .section {
-font-size: 8pt;
+  font-size: 7pt;
 }
 h1 {
   font-family: sans-serif;
@@ -108,10 +107,14 @@ p {
   background: #ffffff;
   overflow: hidden;
   position: absolute;
-  bottom: 2mm;
+  bottom: 0;
+  font-size: 10pt;
 }
 a {
   color: #ebae34;
   text-decoration: none;
+}
+ul {
+  padding-inline-start: 20px;
 }
 
