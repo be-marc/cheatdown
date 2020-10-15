@@ -12,7 +12,8 @@ Depends:
     R (>= 3.1.0)
 Imports:
   rmarkdown,
-  htmltools
+  htmltools,
+  servr
 License: LGPL-3
 Encoding: UTF-8
 LazyData: true
