@@ -8,7 +8,7 @@ print_pdf = function(input, chrome = TRUE) {
   )
 
   dir.create("pdf", showWarnings = FALSE)
-  command = paste0(ifelse(chrome, "google-chrome", "chromium-browser"), " --headless --print-to-pdf='pdf/mlr3.pdf' --virtual-time-budget=20000  --disable-gpu --run-all-compositor-stages-before-draw ", svr$url)
+  command = paste0(ifelse(chrome, "google-chrome", "chromium-browser"), " --headless --run-all-compositor-stages-before-draw --print-to-pdf='pdf/mlr3.pdf' --virtual-time-budget=60000  --disable-gpu ", svr$url)
   print(command)
   system(command, wait = FALSE)
 }
