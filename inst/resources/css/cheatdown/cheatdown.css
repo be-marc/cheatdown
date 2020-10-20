@@ -53,7 +53,7 @@ pre.sourceCode.r{
 }
 div.sourceCode {
   background-color: transparent;
-  width: 85%
+  width: 85%;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden !important;
@@ -116,5 +116,9 @@ a {
 }
 ul {
   padding-inline-start: 20px;
+}
+
+table {
+  font-size: 6pt;
 }
 
