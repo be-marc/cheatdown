@@ -1,5 +1,19 @@
+#' @import crrri
+NULL
+
+#' @title  Print cheat sheet to pdf
+#' 
+#' @description 
+#' The `print_pdf()` function renders the input R Markdown file and prints the page in a chrome headless session.
+#' 
+#' @param input (`character(1)`)\cr
+#' The path to the input R Markdown document (.Rmd) to be rendered.
+#' 
+#' @param output (`character(1)`)\cr
+#' The path of the output file (.pdf).
+#' 
 #' @export
-print_pdf = function(input, output, chrome = TRUE) {
+print_pdf = function(input, output) {
   url = rmarkdown::render(input)
 
   svr = servr::httd(
@@ -8,8 +22,24 @@ print_pdf = function(input, output, chrome = TRUE) {
   )
 
   dir.create(dirname(output), showWarnings = FALSE)
-  command = paste0(ifelse(chrome, "google-chrome", "chromium-browser"), " --headless --run-all-compositor-stages-before-draw --print-to-pdf='", output, "' --virtual-time-budget=60000  --disable-gpu ", svr$url)
-  print(command)
-  system(command, wait = FALSE)
-  Sys.sleep(20)
+
+  save_url_as_pdf <- function(url, output) {
+  function(client) {
+    Page <- client$Page
+
+    Page$enable() %...>% {
+      Page$navigate(url = url)
+      Page$loadEventFired()
+    } %...>% 
+    wait(10) %...>% {
+      Page$printToPDF(printBackground = TRUE)
+    } %...>% {
+      .$data %>%
+        jsonlite::base64_dec() %>%
+        writeBin(output)
+    }
+  }
+}
+
+perform_with_chrome(save_url_as_pdf(svr$url, output))
 }

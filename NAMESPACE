@@ -3,3 +3,4 @@
 export(cheatdown_html)
 export(preview_chrome)
 export(print_pdf)
+import(crrri)

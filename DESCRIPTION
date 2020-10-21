@@ -1,20 +1,24 @@
 Package: cheatdown
-Title: Create Cheatsheets with R Markdown 
+Title: Create Cheat Sheets with R Markdown
 Version: 0.0.0.9000
 Authors@R:
-    c(person(given = "Marc",
-             family = "Becker",
-             role = c("cre", "aut"),
-             email = "marcbecker@posteo.de",
-             comment = c(ORCID = "0000-0002-8115-0400")))
+    person(given = "Marc",
+           family = "Becker",
+           role = c("cre", "aut"),
+           email = "marcbecker@posteo.de",
+           comment = c(ORCID = "0000-0002-8115-0400"))
 Description: Create Cheatsheets with R Markdown.
+License: LGPL-3
 Depends:
     R (>= 3.1.0)
 Imports:
-  rmarkdown,
-  htmltools,
-  servr
-License: LGPL-3
+    crrri,
+    htmltools,
+    jsonlite,
+    rmarkdown,
+    servr
+Remotes:
+    RLesur/crrri
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
