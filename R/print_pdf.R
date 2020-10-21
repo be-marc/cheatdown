@@ -32,7 +32,7 @@ print_pdf = function(input, output) {
       Page$loadEventFired()
     } %...>% 
     wait(10) %...>% {
-      Page$printToPDF(printBackground = TRUE)
+      Page$printToPDF(printBackground = TRUE, preferCSSPageSize = TRUE)
     } %...>% {
       .$data %>%
         jsonlite::base64_dec() %>%
