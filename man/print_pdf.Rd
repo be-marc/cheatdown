@@ -14,5 +14,6 @@ The path to the input R Markdown document (.Rmd) to be rendered.}
 The path of the output file (.pdf).}
 }
 \description{
-The `print_pdf()` function renders the input R Markdown file and prints the page in a chrome headless session.
+The `print_pdf()` function renders the input R Markdown file and prints the
+page in a chrome headless session.
 }

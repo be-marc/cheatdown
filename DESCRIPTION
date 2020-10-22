@@ -13,6 +13,7 @@ Depends:
     R (>= 3.1.0)
 Imports:
     crrri,
+    httpuv,
     htmltools,
     jsonlite,
     rmarkdown,
