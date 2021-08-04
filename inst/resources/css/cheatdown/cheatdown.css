@@ -88,6 +88,9 @@ h2 {
 .example_code {
   font-size: 4pt !important;
 }
+pre.sourceCode.r.multiline code.sourceCode.r {
+  font-size: 4pt;
+}
 .page_break {
   break-before: page;
 }
